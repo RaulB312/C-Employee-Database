@@ -29,12 +29,15 @@ run: clean default
 
 
 
-default: $(TARGET)
+default: create_dirs $(TARGET)
 
 clean:
 		rm -f obj/*.o
 		rm -f bin/*
 		rm -f *.db
+
+create_dirs:
+		mkdir -p obj bin
 
 $(TARGET): $(OBJ)
 		gcc -g -o $@ $?
